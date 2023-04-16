@@ -25,17 +25,41 @@ public class daysOfAMonth {
                     JOptionPane.ERROR_MESSAGE);
             return;
         }
-
-        // Calculate number of days in the entered month and year
-        int numDays = getNumDaysInMonth(month, year);
-
-        // Display result
-        JOptionPane.showMessageDialog(null, "Number of days in " + getMonthName(month) + " " + year + ": " + numDays,
-                "Result", JOptionPane.INFORMATION_MESSAGE);
+        
+        System.out.println(dayOfMOnth(year, month));
+        
+    }
+    public static int dayOfMOnth(int year, int month){
+        if(checkLeapYear(year) == false){
+            if( month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month ==12 )
+            {
+                return 31;
+            }
+            else if( month == 2) return 28;
+            else return 30;
+        }
+        else {
+            if( month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month ==12 )
+            {
+                return 31;
+            }
+            else if( month == 2) return 29;
+            else return 30;
+        }
+    }
+    static boolean checkLeapYear(int year){
+        if( year% 4 == 0 ){
+            if( year%100 == 0 && year%400!= 0 )
+            return false;
+            else return true;
+        }
+        else{
+            return false;
+        }
     }
 
     // Method to parse and validate month input
-    private static int parseMonthInput(String input) {
+    static int parseMonthInput(String input) {
         input = input.toLowerCase();
         switch (input) {
             case "january":
@@ -102,7 +126,7 @@ public class daysOfAMonth {
     }
 
     // Method to parse and validate year input
-    private static int parseYearInput(String input) {
+    static int parseYearInput(String input) {
         try {
             int year = Integer.parseInt(input);
             if (year >= 0) {
