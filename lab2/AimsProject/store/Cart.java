@@ -3,7 +3,7 @@ package store;
 public class Cart {
     public static final int MAX_NUMBERS_ORDERED = 20;
     private int qtyOrdered = 0;
-    private float TotalCost = 0f;
+    private float totalCost = 0f;
     private DigitalVideoDisc itemsOrdered[] = new DigitalVideoDisc[MAX_NUMBERS_ORDERED];
 
     public int getQtyOrderd() {
@@ -44,9 +44,9 @@ public class Cart {
     public float getTotalCost() {
         for (int i = 0; i < qtyOrdered; i++) {
 
-                TotalCost += itemsOrdered[i].getCost();
+                totalCost += itemsOrdered[i].getCost();
         }
-        return TotalCost;
+        return totalCost;
     }
 
 }
