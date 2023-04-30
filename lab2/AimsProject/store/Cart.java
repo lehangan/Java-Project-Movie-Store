@@ -4,13 +4,13 @@ public class Cart {
     public static final int MAX_NUMBERS_ORDERED = 20;
     private int qtyOrdered = 0;
     private float TotalCost = 0f;
-    private DigitalVideoDisc itemsOrder[] = new DigitalVideoDisc[MAX_NUMBERS_ORDERED];
+    private DigitalVideoDisc itemsOrdered[] = new DigitalVideoDisc[MAX_NUMBERS_ORDERED];
 
     public int getQtyOrderd() {
         return this.qtyOrdered;
     }
 
-    public boolean isFull() {
+    public boolean isFulled() {
         if (qtyOrdered == MAX_NUMBERS_ORDERED)
             return true;
         else
@@ -18,26 +18,35 @@ public class Cart {
     }
 
     public void addDigitalVideoDisc(DigitalVideoDisc disc) {
-        if (isFull())
+        if (isFulled())
             System.out.println("The Cart is almost full");
-        itemsOrder[qtyOrdered] = disc;
+        itemsOrdered[qtyOrdered] = disc;
         qtyOrdered++;
         System.out.println("The disc has been added");
     }
 
     public void removeDigitalVideoDisc(DigitalVideoDisc disc) {
-        for (int i = 0; i < qtyOrdered; i++)
-            if (itemsOrder[qtyOrdered] == disc)
-                itemsOrder[qtyOrdered] = null;
-        qtyOrdered--;
+        int index = -1;
+        for (int i = 0; i < 20; i++)
+            if (itemsOrdered[i] == disc)
+                index = i;
+        if (index == -1) {
+            System.out.println("Can't find the disc");
+        } else {
+            qtyOrdered--;
+            for (int i = index; i < qtyOrdered; i++) {
+                itemsOrdered[i] = itemsOrdered[i + 1];
+            }
+        }
         System.out.println("The disc has been removed");
     }
 
-    public float totalCost() {
-        for (int i = 0; i < qtyOrdered; i++)
-            TotalCost += itemsOrder[i].getCost();
+    public float getTotalCost() {
+        for (int i = 0; i < qtyOrdered; i++) {
+
+                TotalCost += itemsOrdered[i].getCost();
+        }
         return TotalCost;
     }
-
 
 }

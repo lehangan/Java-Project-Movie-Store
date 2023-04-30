@@ -7,24 +7,24 @@ public class DigitalVideoDisc {
     private int length;
     private float cost;
 
-    DigitalVideoDisc(String _title) {
-        this.title = _title;
+    DigitalVideoDisc(String title) {
+        this.title = title;
     }
 
-    DigitalVideoDisc(String _title, String _category, float _cost) {
-        this(_title);
-        this.category = _category;
-        this.cost = _cost;
+    DigitalVideoDisc(String title, String category, float cost) {
+        this(title);
+        this.category = category;
+        this.cost = cost;
     }
 
-    DigitalVideoDisc(String _director, String _category, String _title, float _cost) {
-        this(_category, _title, _cost);
-        this.category = _category;
+    DigitalVideoDisc(String director, String category, String title, float cost) {
+        this(title, category, cost);
+        this.category = director;
     }
 
-    DigitalVideoDisc(String _title, String _category, String _diretor, int _length, float _cost) {
-        this(_diretor, _category, _title, _cost);
-        this.length = _length;
+    DigitalVideoDisc(String title, String category, String diretor, int length, float cost) {
+        this(diretor, category, title, cost);
+        this.length = length;
     }
 
     public String getTitle() {
