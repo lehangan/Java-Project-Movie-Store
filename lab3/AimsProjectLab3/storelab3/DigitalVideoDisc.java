@@ -6,9 +6,13 @@ public class DigitalVideoDisc {
     private String director;
     private int length;
     private float cost;
+    private int id;
 
+    private static int nbDigitalVideoDiscs = 0;
     DigitalVideoDisc(String title) {
         this.title = title;
+        this.id = nbDigitalVideoDiscs;
+        nbDigitalVideoDiscs++;
     }
 
     DigitalVideoDisc(String title, String category, float cost) {
@@ -45,5 +49,9 @@ public class DigitalVideoDisc {
 
     public String getDirector() {
         return this.director;
+    }
+
+    public static int getnbDigitalVideoDisc(){
+        return nbDigitalVideoDiscs;
     }
 }

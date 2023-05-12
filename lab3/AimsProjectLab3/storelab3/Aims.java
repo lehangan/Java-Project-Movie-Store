@@ -12,11 +12,11 @@ public class Aims {
 
         DigitalVideoDisc dvd3 = new DigitalVideoDisc("Aladin" , "Animation", 18.995f);
         anOrder.addDigitalVideoDisc(dvd3);
-
+        
         anOrder.removeDigitalVideoDisc(dvd1);
         System.out.println("Total Cost is:");
         System.out.println(anOrder.getTotalCost());
-
+        System.out.println(DigitalVideoDisc.getnbDigitalVideoDisc());
        
     }
 }
