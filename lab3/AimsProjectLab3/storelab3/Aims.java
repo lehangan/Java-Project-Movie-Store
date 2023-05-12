@@ -1,4 +1,4 @@
-package lab3.AimsProjectLab3.storelab3;
+package lab3.aimsprojectlab3.storelab3;
 
 public class Aims {
     public static void main(String[] args){
