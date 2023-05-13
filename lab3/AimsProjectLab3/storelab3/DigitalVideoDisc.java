@@ -19,7 +19,7 @@ public class DigitalVideoDisc {
 
     DigitalVideoDisc(String director, String category, String title, float cost) {
         this(title, category, cost);
-        this.category = director;
+        this.director = director;
     }
 
     DigitalVideoDisc(String title, String category, String diretor, int length, float cost) {
@@ -46,4 +46,9 @@ public class DigitalVideoDisc {
     public String getDirector() {
         return this.director;
     }
+
+    public String toString(){
+        return getTitle() + " - " + getCategory() + " - " + getDirector() + " - " + getLength() + ": " + getCost() + "$";
+    }
+
 }
