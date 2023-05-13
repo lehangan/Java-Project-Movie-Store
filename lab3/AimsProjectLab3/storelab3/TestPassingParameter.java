@@ -1,7 +1,5 @@
 package lab3.aimsprojectlab3.storelab3;
 
-import javax.print.attribute.standard.DialogTypeSelection;
-
 public class TestPassingParameter {
     public static void main(String[] args){
         DigitalVideoDisc jungleDVD = new DigitalVideoDisc("Jungle");
