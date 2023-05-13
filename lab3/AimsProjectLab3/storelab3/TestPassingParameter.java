@@ -4,8 +4,8 @@ public class TestPassingParameter {
     public static void main(String[] args){
         DigitalVideoDisc jungleDVD = new DigitalVideoDisc("Jungle");
         DigitalVideoDisc cinderellaDVD = new DigitalVideoDisc("Cinderella");
-        wrapperDVD dvd1 = new wrapperDVD(jungleDVD);
-        wrapperDVD dvd2 = new wrapperDVD(cinderellaDVD);
+        //wrapperDVD dvd1 = new wrapperDVD(jungleDVD);
+        //wrapperDVD dvd2 = new wrapperDVD(cinderellaDVD);
         swap(jungleDVD,cinderellaDVD);
         // swapActually(dvd1, dvd2);
         System.out.println("jungle dvd title: " + jungleDVD.getTitle());
