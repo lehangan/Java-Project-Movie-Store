@@ -52,6 +52,7 @@ public class DigitalVideoDisc {
         return this.director;
     }
 
+<<<<<<< HEAD
     public String setTitle(String title){
         this.title = title;
         return this.title;
@@ -64,4 +65,10 @@ public class DigitalVideoDisc {
     public static int getnbDigitalVideoDisc() {
         return nbDigitalVideoDiscs;
     }
+=======
+    public String toString(){
+        return getTitle() + " - " + getCategory() + " - " + getDirector() + " - " + getLength() + ": " + getCost() + "$";
+    }
+
+>>>>>>> feature/print-cart
 }
