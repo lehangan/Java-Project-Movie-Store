@@ -1,4 +1,4 @@
-package OtherProjects.hust.soict.globalict.lab01.garbage;
+package OtherProjects.hust.soict.globalict.garbage;
 
 import java.util.Random;
 
