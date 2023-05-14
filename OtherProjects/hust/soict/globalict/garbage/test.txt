@@ -1,0 +1,24 @@
+Create a new class GarbageCreator. Create “garbage” as much as possible and observe when you run 
+a program (it should let the program hangs or even stop working when too much “garbage”). Write another 
+class NoGarbage to solve the problem.
+Some suggestions:
+- Read a text/binary file to a String without using StringBuffer to concatenate String (only use + 
+operator). Observe and capture your screen when you choose a very long file
+- Improve the code using StringBuffer. 
+The following piece of code is a suggestion for your implementation
+- Create a new class GarbageCreator. Create “garbage” as much as possible and observe when you run 
+a program (it should let the program hangs or even stop working when too much “garbage”). Write another 
+class NoGarbage to solve the problem.
+Some suggestions:
+- Read a text/binary file to a String without using StringBuffer to concatenate String (only use + 
+operator). Observe and capture your screen when you choose a very long file
+- Improve the code using StringBuffer. 
+The following piece of code is a suggestion for your implementatio
+- Create a new class GarbageCreator. Create “garbage” as much as possible and observe when you run 
+a program (it should let the program hangs or even stop working when too much “garbage”). Write another 
+class NoGarbage to solve the problem.
+Some suggestions:
+- Read a text/binary file to a String without using StringBuffer to concatenate String (only use + 
+operator). Observe and capture your screen when you choose a very long file
+- Improve the code using StringBuffer. 
+The following piece of code is a suggestion for your implementatio
