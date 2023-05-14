@@ -48,4 +48,35 @@ public class Cart {
         }
         return totalCost;
     }
+
+    public void searchID(int id){
+        int index = -1;
+        for( int i = 0 ;i<qtyOrdered ; i++)
+            if( itemsOrdered[i].getId() == id){
+                index = i;
+            }
+        if(index == -1){
+            System.out.println("Can't find the disc have " + id +" id");
+        }
+        else{
+            System.out.println(itemsOrdered[index].getTitle());
+        }
+    }
+
+    public void searchTitle(String title){
+        int index = -1;
+        for( int i = 0 ;i<qtyOrdered ; i++)
+            if( itemsOrdered[i].isMatch(title)){
+                index = i;
+            }
+        if(index == -1){
+            System.out.println("Can't find the disc have " + title +" title");
+        }
+        else{
+            System.out.println(itemsOrdered[index].getTitle());
+        }
+    }
+
+
+
 }
