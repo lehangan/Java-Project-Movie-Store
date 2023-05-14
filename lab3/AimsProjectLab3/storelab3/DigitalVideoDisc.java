@@ -51,6 +51,10 @@ public class DigitalVideoDisc {
         return this.director;
     }
 
+    public int getId(){
+        return this.id;
+    }
+
     public static int getnbDigitalVideoDisc(){
         return nbDigitalVideoDiscs;
     }
