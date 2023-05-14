@@ -18,6 +18,6 @@ public class Aims {
         System.out.println(anOrder.getTotalCost());
         System.out.println(DigitalVideoDisc.getnbDigitalVideoDisc());
         
-        
+        anOrder.search("Star Wars");
     }
 }

@@ -49,7 +49,7 @@ public class Cart {
         return totalCost;
     }
 
-    public void searchID(int id){
+    public void search(int id){
         int index = -1;
         for( int i = 0 ;i<qtyOrdered ; i++)
             if( itemsOrdered[i].getId() == id){
@@ -59,11 +59,11 @@ public class Cart {
             System.out.println("Can't find the disc have " + id +" id");
         }
         else{
-            System.out.println(itemsOrdered[index].getTitle());
+            System.out.println(itemsOrdered[index].toString());
         }
     }
 
-    public void searchTitle(String title){
+    public void search(String title){
         int index = -1;
         for( int i = 0 ;i<qtyOrdered ; i++)
             if( itemsOrdered[i].isMatch(title)){
@@ -73,7 +73,7 @@ public class Cart {
             System.out.println("Can't find the disc have " + title +" title");
         }
         else{
-            System.out.println(itemsOrdered[index].getTitle());
+            System.out.println(itemsOrdered[index].toString());
         }
     }
 

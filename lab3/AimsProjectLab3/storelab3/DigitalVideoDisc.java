@@ -62,4 +62,8 @@ public class DigitalVideoDisc {
     public boolean isMatch(String title){
         return this.title == title;
     }
+
+    public String toString(){
+        return getTitle() + " - " + getCategory() + " - " + getDirector() + " - " + getLength() + ": " + getCost() + "$";
+    }
 }
