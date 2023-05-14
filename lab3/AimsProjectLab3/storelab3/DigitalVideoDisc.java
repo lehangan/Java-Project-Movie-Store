@@ -64,8 +64,12 @@ public class DigitalVideoDisc {
     public static int getnbDigitalVideoDisc() {
         return nbDigitalVideoDiscs;
     }
+
+    public boolean isMatch(String title){
+        return this.title == title;
+    }
+
     public String toString(){
         return getTitle() + " - " + getCategory() + " - " + getDirector() + " - " + getLength() + ": " + getCost() + "$";
     }
-
 }
