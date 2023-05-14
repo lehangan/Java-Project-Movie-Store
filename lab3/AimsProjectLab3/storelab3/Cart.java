@@ -16,6 +16,43 @@ public class Cart {
         else
             return false;
     }
+    public void addDigitalVideoDisc(DigitalVideoDisc[] dvdList) {
+        if (isFulled())
+            System.out.println("The Cart is almost full");
+        for (DigitalVideoDisc i:dvdList){
+            itemsOrdered[qtyOrdered] = i;
+            qtyOrdered++;
+            if (isFulled()){
+                System.out.println("The Cart almost full");
+                break;
+            }
+        }
+    }
+
+    public void addDigitalVideoDisc(int dvdNum){
+        if (isFulled())
+            System.out.println("The Cart is almost full");
+        for( int i = 1 ; i<= dvdNum; i++){
+            itemsOrdered[qtyOrdered] = new DigitalVideoDisc(null);
+            qtyOrdered++;
+            if (isFulled()){
+                System.out.println("The Cart almost full");
+                break;
+            }
+        }
+    }
+
+    public void addDigitalVideoDisc(DigitalVideoDisc dvd1, DigitalVideoDisc dvd2){
+        if (isFulled())
+            System.out.println("The Cart is almost full");
+        itemsOrdered[qtyOrdered] = dvd1;
+        qtyOrdered++;
+        if (isFulled())
+            System.out.println("The Cart is full, can't input dvd2");
+        itemsOrdered[qtyOrdered] = dvd2;
+        qtyOrdered++;
+        System.out.println("2 disc have been added");
+    }
 
     public void addDigitalVideoDisc(DigitalVideoDisc disc) {
         if (isFulled())
