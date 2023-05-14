@@ -1,3 +1,4 @@
+package OtherProjects.hust.soict.globalict.lab01;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
 

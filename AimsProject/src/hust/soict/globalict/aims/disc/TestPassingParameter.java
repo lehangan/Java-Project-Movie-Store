@@ -1,4 +1,4 @@
-package lab3.aimsprojectlab3.storelab3;
+package AimsProject.src.hust.soict.globalict.aims.disc;
 
 public class TestPassingParameter {
     public static void main(String[] args){

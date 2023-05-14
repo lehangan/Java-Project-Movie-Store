@@ -1,4 +1,6 @@
-package lab3.aimsprojectlab3.storelab3;
+package AimsProject.src.hust.soict.globalict.aims.cart;
+
+import AimsProject.src.hust.soict.globalict.aims.disc.DigitalVideoDisc;
 
 public class Cart {
     public static final int MAX_NUMBERS_ORDERED = 20;

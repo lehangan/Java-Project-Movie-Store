@@ -1,5 +1,5 @@
+package OtherProjects.hust.soict.globalict.lab01;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableColumnModel;
 
 import java.util.Scanner;
 

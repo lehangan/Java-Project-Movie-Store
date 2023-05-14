@@ -1,4 +1,4 @@
-package lab3.aimsprojectlab3.storelab3;
+package AimsProject.src.hust.soict.globalict.aims.disc;
 
 public class DigitalVideoDisc {
     private String title;
@@ -10,24 +10,24 @@ public class DigitalVideoDisc {
 
     private static int nbDigitalVideoDiscs = 0;
 
-    DigitalVideoDisc(String title) {
+    public DigitalVideoDisc(String title) {
         this.title = title;
         this.id = nbDigitalVideoDiscs;
         nbDigitalVideoDiscs++;
     }
 
-    DigitalVideoDisc(String title, String category, float cost) {
+    public DigitalVideoDisc(String title, String category, float cost) {
         this(title);
         this.category = category;
         this.cost = cost;
     }
 
-    DigitalVideoDisc(String director, String category, String title, float cost) {
+    public DigitalVideoDisc(String director, String category, String title, float cost) {
         this(title, category, cost);
         this.director = director;
     }
 
-    DigitalVideoDisc(String title, String category, String diretor, int length, float cost) {
+    public DigitalVideoDisc(String title, String category, String diretor, int length, float cost) {
         this(diretor, category, title, cost);
         this.length = length;
     }

@@ -1,4 +1,7 @@
-package lab3.aimsprojectlab3.storelab3;
+package AimsProject.src.hust.soict.globalict.aims;
+
+import AimsProject.src.hust.soict.globalict.aims.cart.Cart;
+import AimsProject.src.hust.soict.globalict.aims.disc.DigitalVideoDisc;
 
 public class Aims {
     public static void main(String[] args){

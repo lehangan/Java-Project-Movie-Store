@@ -1,4 +1,6 @@
-package lab3.aimsprojectlab3.storelab3;
+package AimsProject.src.hust.soict.globalict.aims.store;
+
+import AimsProject.src.hust.soict.globalict.aims.disc.DigitalVideoDisc;
 
 public class StoreTest {
     public static void main(String[] args){

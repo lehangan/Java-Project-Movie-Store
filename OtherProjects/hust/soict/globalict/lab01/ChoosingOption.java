@@ -1,3 +1,4 @@
+package OtherProjects.hust.soict.globalict.lab01;
 import javax.swing.JOptionPane;
 
 public class ChoosingOption {
