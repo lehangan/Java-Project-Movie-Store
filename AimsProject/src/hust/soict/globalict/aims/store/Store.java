@@ -1,38 +1,35 @@
 package AimsProject.src.hust.soict.globalict.aims.store;
 
-import AimsProject.src.hust.soict.globalict.aims.media.DigitalVideoDisc;
+import java.util.ArrayList;
+import java.util.List;
+
+import AimsProject.src.hust.soict.globalict.aims.media.Media;
 
 public class Store {
-    public static final int MAX_NUMBERS_STORE = 1000001;
-    private DigitalVideoDisc itemsInStore[] = new DigitalVideoDisc[MAX_NUMBERS_STORE];
-    private int qtyStore = 0;
-
-    public int getQtyStore(){
-        return this.qtyStore;
-    }
-
-    public void addDVD(DigitalVideoDisc disc) {
-        if (qtyStore == MAX_NUMBERS_STORE)
-            System.out.println("The Store is almost full");
-        itemsInStore[qtyStore] = disc;
-        qtyStore++;
-        System.out.println("The disc has been added to store");
-    }
-
-    public void removeDVD(DigitalVideoDisc disc){
-        int index = -1;
-        for (int i = 0; i < qtyStore; i++)
-            if (itemsInStore[i] == disc)
-                index = i;
-        if (index == -1) {
-            System.out.println("Can't find the disc in the store");
-        } else {
-            qtyStore--;
-            for (int i = index; i < qtyStore; i++) {
-                itemsInStore[i] = itemsInStore[i + 1];
-            }
+    private List<Media> itemsInStore = new ArrayList<Media>();
+	
+	public void addMedia(Media media) {
+		this.itemsInStore.add(media);
+		System.out.println("Item added.");
+	}
+	
+	public String removeMedia(Media media) {
+		String warning = "";
+		if (this.itemsInStore.remove(media)) {
+			System.out.println("Item removed.");
+		} else {
+			warning = "Item doesn't exist.";
+			System.out.println(warning);
+		}
+		return warning;
+	}
+	
+	public void print() {
+		System.out.print("[");
+		int lastindex = this.itemsInStore.size() - 1;
+        for (int i = 0; i <= lastindex; i++) {
+            System.out.print(this.itemsInStore.get(i).getTitle() + (i == lastindex ? "" : ", "));
         }
-        System.out.println("The disc has been removed in store");
-    }
-
+        System.out.println("]");
+	}
 }
