@@ -54,17 +54,25 @@ public abstract class Media {
         this(title);
         this.category = category;
         this.cost = cost;
+
     }
 
-    public boolean equals(Media o) {
-        if (o == this) {
+    public boolean isMatch(String title) {
+        return (this.getTitle() == title);
+    }
+    
+    public String toString() {
+        return getId() + " - " + getTitle() + " - " + getCategory() + ": " + getCost() + "$";
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == this)
             return true;
-        }
-        if (!(o instanceof Media)) {
+        if (!(obj instanceof Media))
             return false;
-        }
-        Media m = (Media) o;
-        return title == m.getTitle();
+        Media media = (Media) obj;
+        return media.getTitle() == this.title;
     }
 
 }

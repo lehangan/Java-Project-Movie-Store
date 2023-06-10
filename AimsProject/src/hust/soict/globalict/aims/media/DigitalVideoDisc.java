@@ -23,9 +23,6 @@ public class DigitalVideoDisc extends Disc implements Playable {
         nbDigitalVideoDisc++;
     }
 
-    public boolean isMatch(String title) {
-        return (this.getTitle() == title);
-    }
 
     public static int getnbDigitalVideoDisc() {
         return nbDigitalVideoDisc;
@@ -38,7 +35,11 @@ public class DigitalVideoDisc extends Disc implements Playable {
 
     @Override
     public void play() {
-        System.out.println("Playing DVD: " + this.getTitle());
-        System.out.println("DVD length: " + this.getLength());
+        if (this.getLength() != 0) {
+            System.out.println("Playing DVD: " + this.getTitle());
+            System.out.println("DVD length: " + this.getLength());
+        } else {
+            System.out.println("this DVD can not be play");
+        }
     }
 }

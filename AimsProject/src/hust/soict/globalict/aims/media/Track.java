@@ -1,6 +1,5 @@
 package AimsProject.src.hust.soict.globalict.aims.media;
 
-
 public class Track implements Playable {
     private String title;
     private int length;
@@ -32,18 +31,23 @@ public class Track implements Playable {
 
     @Override
     public void play() {
-        System.out.println("Playing DVD: " + this.getTitle());
-        System.out.println("DVD length: " + this.getLength());
+        if (this.getLength() != 0) {
+            System.out.println("Playing DVD: " + this.getTitle());
+            System.out.println("DVD length: " + this.getLength());
+        } else {
+            System.out.println("this DVD can not be play");
+        }
+
     }
 
-    public boolean equals(Track o){
-        if(o == this){
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == this)
             return true;
-        }
-        if(!(o instanceof Track)){
+        if (!(obj instanceof Track))
             return false;
-        }
-        Track t = (Track) o;
-        return title == t.getTitle() && length == t.getLength();
+        Track track = (Track) obj;
+        return this.title == track.getTitle() && this.length == track.getLength();
     }
+
 }

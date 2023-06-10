@@ -4,10 +4,6 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class Book extends Media{
-    private int id;
-    private String title;
-    private String category;
-    private float cost;
     private List<String> authors = new ArrayList<String>();
 
     public Book(String title){
@@ -39,5 +35,10 @@ public class Book extends Media{
             System.out.println("Remove successful");
         }
         else System.out.println("Fail");
+    }
+
+    @Override
+    public String toString(){
+        return  getTitle() + " - " + getCategory() + " - " +  getAuthors() + ": " + getCost() + "$" ;
     }
 }

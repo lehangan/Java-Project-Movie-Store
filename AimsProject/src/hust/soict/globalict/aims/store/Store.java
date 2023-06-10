@@ -9,27 +9,14 @@ public class Store {
     private List<Media> itemsInStore = new ArrayList<Media>();
 	
 	public void addMedia(Media media) {
-		this.itemsInStore.add(media);
-		System.out.println("Item added.");
-	}
+        itemsInStore.add(media);
+        System.out.println("The media has been added");
+    }
 	
-	public String removeMedia(Media media) {
-		String warning = "";
-		if (this.itemsInStore.remove(media)) {
-			System.out.println("Item removed.");
-		} else {
-			warning = "Item doesn't exist.";
-			System.out.println(warning);
-		}
-		return warning;
-	}
+	public void removeMedia(Media media) {
+         if(itemsInStore.remove(media)) {
+            System.out.println("The media has been removed");
+        } else System.out.println("Not have this media in store");
+    }
 	
-	public void print() {
-		System.out.print("[");
-		int lastindex = this.itemsInStore.size() - 1;
-        for (int i = 0; i <= lastindex; i++) {
-            System.out.print(this.itemsInStore.get(i).getTitle() + (i == lastindex ? "" : ", "));
-        }
-        System.out.println("]");
-	}
 }

@@ -1,9 +1,14 @@
 package AimsProject.src.hust.soict.globalict.aims;
 
+import java.util.Scanner;
+
 import AimsProject.src.hust.soict.globalict.aims.cart.Cart;
-import AimsProject.src.hust.soict.globalict.aims.media.DigitalVideoDisc;
+import AimsProject.src.hust.soict.globalict.aims.store.Store;
 
 public class Aims {
+    public static Cart cart = new Cart();
+    public static Store store = new Store();
+
     public static void showMenu() {
         System.out.println("AIMS: ");
         System.out.println("--------------------------------");
@@ -69,5 +74,8 @@ public class Aims {
         System.out.println("Please choose a number: 1-2");
     }
     public static void main(String[] args) {
+        Scanner keyboard = new Scanner(System.in);
+        String nhapvao = keyboard.next();
+        System.out.println(nhapvao);
     }
 }
