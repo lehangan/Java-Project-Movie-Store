@@ -1,6 +1,6 @@
 package AimsProject.src.hust.soict.globalict.aims.cart;
 
-import AimsProject.src.hust.soict.globalict.aims.disc.DigitalVideoDisc;
+import AimsProject.src.hust.soict.globalict.aims.media.DigitalVideoDisc;
 
 public class Cart {
     public static final int MAX_NUMBERS_ORDERED = 20;
