@@ -1,4 +1,6 @@
-package AimsProject.src.hust.soict.globalict.aims.disc;
+package OtherProjects.disc;
+
+import AimsProject.src.hust.soict.globalict.aims.media.DigitalVideoDisc;
 
 public class TestPassingParameter {
     public static void main(String[] args){
