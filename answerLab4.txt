@@ -1,15 +1,27 @@
 - Which classes are aggregates of other classes? Checking all constructors of whole classes if they 
 initialize for their parts?
-- If the passing object is not an instance of Media, what happens? => object is not right to compare so return false
+=> The CompactDisc class aggregate the Track objects.
+=> The Cart class aggregate the Media objects.
+=> The Store class aggregate the Media objects.
+
+- If the passing object is not an instance of Media, what happens?
+ => object is not right to compare so return false
 
 Question: Alternatively, to compare items in the cart, instead of using Comparator, we can use the 
 Comparable interface and override the compareTo()method. You can refer to the Java docs to see the 
 information of this interface. 
 Suppose we are taking this Comparable interface approach.
-- What class should implement the Comparable interface? => 
+- What class should implement the Comparable interface? 
+=> MediaComparatorByCostTitle, and MediaComparatorByTitleCost class 
+
 - In those classes, how should you implement the compareTo()method be to reflect the ordering that we 
 want? 
+=> by override compareTo we can create the ordering that we want 
+
 - Can we have two ordering rules of the item (by title then cost and by cost then title) if we use this 
 Comparable interface approach? 
+=> No 
+
 - Suppose the DVDs has a different ordering rule from the other media types, that is by title, then decreasing 
 length, then cost. How would you modify your code to allow this? 
+=> can create class DVDComparatorByTitleLengthCost, and do same as media ( Collections.sort())
