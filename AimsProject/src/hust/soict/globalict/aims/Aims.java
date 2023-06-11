@@ -74,8 +74,14 @@ public class Aims {
         System.out.println("Please choose a number: 1-2");
     }
     public static void main(String[] args) {
+        int input;
+        showMenu();
         Scanner keyboard = new Scanner(System.in);
-        String nhapvao = keyboard.next();
-        System.out.println(nhapvao);
+        input = keyboard.nextInt();
+        if( input == 1 ) {
+            storeMenu();
+            String title = keyboard.next();
+            
+        }
     }
 }
