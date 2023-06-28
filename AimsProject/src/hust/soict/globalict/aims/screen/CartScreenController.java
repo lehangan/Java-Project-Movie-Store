@@ -28,6 +28,9 @@ public class CartScreenController {
     private Cart cart;
 
     @FXML
+    private Button btnPlaceOrder;
+
+    @FXML
     private Button btnPlay;
 
     @FXML
@@ -126,41 +129,48 @@ public class CartScreenController {
 
             }
         });
-
+        totalCost.setText(cart.getTotalCost() + " $");
+        
     }
 
     public void changeTotalCost() {
-        totalCost.setText(this.cart.getTotalCost() + " $");
+        totalCost.setText(cart.getTotalCost() + " $");
     }
 
     @FXML
     void btnRemovePressed(ActionEvent e) {
         Media media = tblMedia.getSelectionModel().getSelectedItem();
         cart.removeMedia(media);
-        // changeTotalCost();
+        totalCost.setText(cart.getTotalCost() + " $");
         // Note that we don’t need to invoke an update for the TableView because the it
         // can already observe the
         // changes though the ObservableList and update its display
     }
 
     @FXML
-    void btnPlayPressed(ActionEvent e) {
+    void btnPlayPressed(ActionEvent event) {
         Media media = tblMedia.getSelectionModel().getSelectedItem();
-        if (media instanceof Playable) {
-            Alert alert = new Alert(AlertType.INFORMATION);
-            alert.setTitle("Playing Media");
-            alert.setHeaderText(null);
-            alert.setContentText("Playing " + media.getTitle());
-
+        try {
+            ((Playable) media).play();
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Media Player");
+            alert.setHeaderText("Media: " + media.getTitle());
+            alert.setContentText("Playing...");
             alert.showAndWait();
-        } else {
-            Alert alert = new Alert(AlertType.ERROR);
-            alert.setTitle("Error Dialog");
-            alert.setHeaderText("Ooops, there was an error!");
-            alert.setContentText("Ooops, there was an error!");
-
+        } catch (PlayerException e) {
+            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage());
             alert.showAndWait();
         }
     }
 
+    @FXML
+    void btnPlaceOrder() {
+        Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("Placing order");
+		alert.setHeaderText(cart.getTotalCost() + " $");
+		alert.setContentText("Your total is " + cart.getTotalCost() + " $. Please pay in cash.");
+
+		alert.showAndWait();
+    }
 }
