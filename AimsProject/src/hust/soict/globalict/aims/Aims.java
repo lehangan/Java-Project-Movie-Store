@@ -2,7 +2,11 @@ package AimsProject.src.hust.soict.globalict.aims;
 
 import java.util.Scanner;
 
+import javax.naming.LimitExceededException;
+import javax.swing.JOptionPane;
+
 import AimsProject.src.hust.soict.globalict.aims.cart.Cart;
+import AimsProject.src.hust.soict.globalict.aims.exception.PlayerException;
 import AimsProject.src.hust.soict.globalict.aims.media.Book;
 import AimsProject.src.hust.soict.globalict.aims.media.CompactDisc;
 import AimsProject.src.hust.soict.globalict.aims.media.DigitalVideoDisc;
@@ -14,7 +18,7 @@ public class Aims {
     public static Cart cart = new Cart();
     public static Store store = new Store();
 
-    public static void showMenu() {
+    public static void showMenu() throws LimitExceededException, PlayerException {
         System.out.println("AIMS: ");
         System.out.println("--------------------------------");
         System.out.println("1. View store");
@@ -40,7 +44,7 @@ public class Aims {
         keyboard.close();
     }
 
-    public static void updateStoreOptions() {
+    public static void updateStoreOptions() throws LimitExceededException, PlayerException {
         DigitalVideoDisc dvd1 = new DigitalVideoDisc("The Lion King", "Animation", "Roger Allers", 87, 19.95f);
         DigitalVideoDisc dvd2 = new DigitalVideoDisc("Star Wars", "Science Fiction", "George Lucas", 87, 24.95f);
         Book book1 = new Book("The Father", "Drama", 97);
@@ -56,11 +60,15 @@ public class Aims {
         Scanner keyboard = new Scanner(System.in);
         int input = keyboard.nextInt();
         if (input == 1) {
-            store.addMedia(dvd1);
-            store.addMedia(dvd2);
-            store.addMedia(cd1);
-            store.addMedia(book1);
-            updateStoreOptions();
+            try {
+                store.addMedia(dvd1);
+                store.addMedia(dvd2);
+                store.addMedia(cd1);
+                store.addMedia(book1);
+                updateStoreOptions();
+            } catch (LimitExceededException e) {
+                JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
         } else if (input == 2) {
             store.removeMedia(cd1);
             updateStoreOptions();
@@ -74,7 +82,7 @@ public class Aims {
         keyboard.close();
     }
 
-    public static void storeMenu() {
+    public static void storeMenu() throws LimitExceededException, PlayerException {
         System.out.println("Options: ");
         System.out.println("--------------------------------");
         System.out.println("1. See a media’s details");
@@ -102,9 +110,13 @@ public class Aims {
             Media m = store.search(title);
             if (m != null) {
                 System.out.println("Information: " + m.toString());
-                cart.addMedia(m);
-                System.out.println("item added successfully");
-                System.out.println("number of Medias in  current card: " + cart.nbItem());
+                try {
+                    cart.addMedia(m);
+
+                    System.out.println("number of Medias in  current card: " + cart.nbItem());
+                } catch (LimitExceededException e) {
+                    JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
+                }
             } else {
                 System.out.println("Media not found");
             }
@@ -112,7 +124,11 @@ public class Aims {
             System.out.println("Enter the title of the media");
             String title = keyboard.next();
             Media m = store.search(title);
-            store.play(m);
+            try {
+                store.play(m);
+            } catch (PlayerException e) {
+                JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
         } else if (input == 4) {
             cart.print();
         } else if (input == 0) {
@@ -125,7 +141,7 @@ public class Aims {
         keyboard.close();
     }
 
-    public static void mediaDetailsMenu(Media m) {
+    public static void mediaDetailsMenu(Media m) throws LimitExceededException, PlayerException {
         System.out.println("Options: ");
         System.out.println("--------------------------------");
         System.out.println("1. Add to cart");
@@ -136,11 +152,19 @@ public class Aims {
         Scanner keyboard = new Scanner(System.in);
         int input = keyboard.nextInt();
         if (input == 1) {
-            cart.addMedia(m);
+            try {
+                cart.addMedia(m);
+            } catch (LimitExceededException e) {
+                JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
             storeMenu();
         } else if (input == 2) {
-            store.play(m);
-            mediaDetailsMenu(m);
+            try {
+                store.play(m);
+                mediaDetailsMenu(m);
+            } catch (PlayerException e) {
+                JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
         } else if (input == 0) {
             System.out.println("Back");
             storeMenu();
@@ -149,9 +173,10 @@ public class Aims {
             mediaDetailsMenu(m);
         }
         keyboard.close();
+
     }
 
-    public static void cartMenu() {
+    public static void cartMenu() throws LimitExceededException, PlayerException {
         System.out.println("Options: ");
         System.out.println("--------------------------------");
         System.out.println("1. Filter medias in cart");
@@ -188,7 +213,7 @@ public class Aims {
         keyboard.close();
     }
 
-    public static void playMediaMenuCart() {
+    public static void playMediaMenuCart() throws LimitExceededException, PlayerException {
         System.out.println("PLAY MEDIA MENU CART");
         System.out.println("Options: ");
         System.out.println("---------------------------------");
@@ -225,9 +250,10 @@ public class Aims {
             playMediaMenuCart();
         }
         keyboard.close();
+
     }
 
-    public static void filterCartOptions() {
+    public static void filterCartOptions() throws LimitExceededException, PlayerException {
         System.out.println("Options: ");
         System.out.println("--------------------------------");
         System.out.println("1. Filter media by ID");
@@ -261,9 +287,10 @@ public class Aims {
             filterCartOptions();
         }
         keyboard.close();
+
     }
 
-    public static void sortCartOptions() {
+    public static void sortCartOptions() throws LimitExceededException, PlayerException {
         System.out.println("Options: ");
         System.out.println("--------------------------------");
         System.out.println("1. Sort media by title");
@@ -289,15 +316,16 @@ public class Aims {
         keyboard.close();
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws LimitExceededException, PlayerException {
         DigitalVideoDisc media1 = new DigitalVideoDisc("Avatar", "Science Fiction", "James Cameron", 192, 12.44f);
-		DigitalVideoDisc media2 = new DigitalVideoDisc("Avatar: Way of the Water", "Science Fiction", "James Cameron", 27.98f);
-		DigitalVideoDisc media3= new DigitalVideoDisc("Top Gun: Maverick", "Action", 22.25f);
+        DigitalVideoDisc media2 = new DigitalVideoDisc("Avatar: Way of the Water", "Science Fiction", "James Cameron",
+                27.98f);
+        DigitalVideoDisc media3 = new DigitalVideoDisc("Top Gun: Maverick", "Action", 22.25f);
         CompactDisc media4 = new CompactDisc("Uncharted", "Adventure", 25.85f);
-		CompactDisc media5 = new CompactDisc("Judas and the Black Messiah", "Crime", 45.98f);
-		Book media6 = new Book("CODA", "Comedy", 38.25f);
-	    Book media7 = new Book("Cruella", "Crime", 35.55f);
-		Book media8 = new Book("Parasite", "Thriller", 19.42f);
+        CompactDisc media5 = new CompactDisc("Judas and the Black Messiah", "Crime", 45.98f);
+        Book media6 = new Book("CODA", "Comedy", 38.25f);
+        Book media7 = new Book("Cruella", "Crime", 35.55f);
+        Book media8 = new Book("Parasite", "Thriller", 19.42f);
         store.addMedia(media1);
         store.addMedia(media2);
         store.addMedia(media3);
@@ -306,7 +334,8 @@ public class Aims {
         store.addMedia(media6);
         store.addMedia(media7);
         store.addMedia(media8);
-        //System.out.println(store.search("Avatar"));
+
+        // System.out.println(store.search("Avatar"));
         showMenu();
     }
 }

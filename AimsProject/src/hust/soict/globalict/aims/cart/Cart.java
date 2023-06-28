@@ -1,20 +1,28 @@
 package AimsProject.src.hust.soict.globalict.aims.cart;
 
+import AimsProject.src.hust.soict.globalict.aims.exception.PlayerException;
 import AimsProject.src.hust.soict.globalict.aims.media.Media;
 import AimsProject.src.hust.soict.globalict.aims.media.MediaComparatorByCostTitle;
 import AimsProject.src.hust.soict.globalict.aims.media.MediaComparatorByTitleCost;
 import AimsProject.src.hust.soict.globalict.aims.media.Playable;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+
+import javax.naming.LimitExceededException;
 
 public class Cart {
     public static final int MAX_NUMBERS_ORDERED = 20;
     private float totalCost = 0f;
-    private ArrayList<Media> itemsOrdered = new ArrayList<Media>();
+    private ObservableList<Media> itemsOrdered = FXCollections.observableArrayList();
     public static final Comparator<Media> COMPARE_BY_COST_TITLE = new MediaComparatorByCostTitle();
     public static final Comparator<Media> COMPARE_BY_TITLE_COST = new MediaComparatorByTitleCost();
+
+    public ObservableList<Media> getItemsOrdered() {
+        return this.itemsOrdered;
+    }
 
     public boolean isFulled() {
         if (itemsOrdered.size() == MAX_NUMBERS_ORDERED)
@@ -23,33 +31,36 @@ public class Cart {
             return false;
     }
 
-    public void addMedia(Media[] medias) {
+    public void addMedia(Media[] medias) throws LimitExceededException {
         if (isFulled())
-            System.out.println("The Cart is almost full");
+            throw new LimitExceededException("ERROR: The number of media has reached its limit");
         for (Media i : medias) {
             itemsOrdered.add(i);
             if (isFulled()) {
-                System.out.println("The Cart almost full");
-                break;
+                throw new LimitExceededException("ERROR: The number of media has reached its limit");
             }
         }
     }
 
-    public void addMedia(Media media1, Media media2) {
-        if (isFulled())
-            System.out.println("The Cart is almost full");
-        itemsOrdered.add(media1);
-        if (isFulled())
-            System.out.println("The Cart is full, can't input media 2");
-        itemsOrdered.add(media2);
-        System.out.println("2 media have been added");
+    public void addMedia(Media media1, Media media2) throws LimitExceededException {
+        if (!isFulled()) {
+            itemsOrdered.add(media1);
+            if (!isFulled()) {
+                itemsOrdered.add(media2);
+            } else
+                throw new LimitExceededException("ERROR: The number of media has reached its limit");
+        } else {
+            throw new LimitExceededException("ERROR: The number of media has reached its limit");
+        }
     }
 
-    public void addMedia(Media media) {
-        if (isFulled())
-            System.out.println("The Cart is almost full");
-        itemsOrdered.add(media);
-        System.out.println("The media has been added");
+    public void addMedia(Media media) throws LimitExceededException {
+        if (!isFulled()) {
+            itemsOrdered.add(media);
+        } else {
+            throw new LimitExceededException("ERROR: The number of media has reached its limit");
+
+        }
     }
 
     public void removeMedia(Media media) {
@@ -113,17 +124,17 @@ public class Cart {
         System.out.println("Thank you for your purchase!");
     }
 
-    public int nbItem(){
+    public int nbItem() {
         return itemsOrdered.size();
     }
 
-    public void play(Media m){
+    public void play(Media m) throws PlayerException{
         if (m != null && m instanceof Playable) {
-                Playable playable = (Playable) m;
-                playable.play();
-            } else {
-                System.out.println("Media can be played.");
-            }
+            Playable playable = (Playable) m;
+            playable.play();
+        } else {
+            System.out.println("Media can be played.");
+        }
     }
 
 }

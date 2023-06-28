@@ -3,12 +3,16 @@ package AimsProject.src.hust.soict.globalict.aims.store;
 import java.util.ArrayList;
 import java.util.List;
 
+import AimsProject.src.hust.soict.globalict.aims.exception.PlayerException;
 import AimsProject.src.hust.soict.globalict.aims.media.Media;
 import AimsProject.src.hust.soict.globalict.aims.media.Playable;
 
 public class Store {
     private List<Media> itemsInStore = new ArrayList<Media>();
 	
+    public List<Media> getItemsInStore(){
+        return this.itemsInStore;
+    }
 	public void addMedia(Media media) {
         itemsInStore.add(media);
         System.out.println("The media has been added");
@@ -38,7 +42,7 @@ public class Store {
         return null;
     }
 
-     public void play(Media m){
+     public void play(Media m) throws PlayerException{
         if (m != null && m instanceof Playable) {
                 Playable playable = (Playable) m;
                 playable.play();

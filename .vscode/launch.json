@@ -1,0 +1,178 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CartScreen",
+            "request": "launch",
+            "mainClass": "AimsProject.src.hust.soict.globalict.aims.screen.CartScreen",
+            "projectName": "Java_6b48553f"
+        },
+        {
+            "type": "java",
+            "name": "Painter",
+            "request": "launch",
+            "mainClass": "AimsProject.src.hust.soict.globalict.javafx.Painter",
+            "projectName": "Java_6b48553f",
+            "vmArgs": "--module-path E:/javafx/javafx-sdk-20.0.1/lib --add-modules javafx.controls,javafx.fxml"
+        },
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}",
+            "vmArgs": "--module-path E:/javafx/javafx-sdk-20.0.1/lib --add-modules javafx.controls,javafx.fxml"
+        },
+        {
+            "type": "java",
+            "name": "Aims",
+            "request": "launch",
+            "mainClass": "AimsProject.src.hust.soict.globalict.aims.Aims",
+            "projectName": "Java_6b48553f",
+            "vmArgs": "--module-path E:/javafx/javafx-sdk-20.0.1/lib --add-modules javafx.controls,javafx.fxml"
+        },
+        {
+            "type": "java",
+            "name": "AWTAccumulator",
+            "request": "launch",
+            "mainClass": "AimsProject.src.hust.soict.globalict.swing.AWTAccumulator",
+            "projectName": "Java_6b48553f"
+        },
+        {
+            "type": "java",
+            "name": "NumberGrid",
+            "request": "launch",
+            "mainClass": "AimsProject.src.hust.soict.globalict.swing.NumberGrid",
+            "projectName": "Java_6b48553f"
+        },
+        {
+            "type": "java",
+            "name": "SwingAccumulator",
+            "request": "launch",
+            "mainClass": "AimsProject.src.hust.soict.globalict.swing.SwingAccumulator",
+            "projectName": "Java_6b48553f"
+        },
+        {
+            "type": "java",
+            "name": "TestPassingParameter",
+            "request": "launch",
+            "mainClass": "OtherProjects.disc.TestPassingParameter",
+            "projectName": "Java_6b48553f"
+        },
+        {
+            "type": "java",
+            "name": "ConcatenationInLoops",
+            "request": "launch",
+            "mainClass": "OtherProjects.hust.soict.globalict.garbage.ConcatenationInLoops",
+            "projectName": "Java_6b48553f"
+        },
+        {
+            "type": "java",
+            "name": "GarbageCreator",
+            "request": "launch",
+            "mainClass": "OtherProjects.hust.soict.globalict.garbage.GarbageCreator",
+            "projectName": "Java_6b48553f"
+        },
+        {
+            "type": "java",
+            "name": "NoGarbage",
+            "request": "launch",
+            "mainClass": "OtherProjects.hust.soict.globalict.garbage.NoGarbage",
+            "projectName": "Java_6b48553f"
+        },
+        {
+            "type": "java",
+            "name": "ChoosingOption",
+            "request": "launch",
+            "mainClass": "OtherProjects.hust.soict.globalict.lab01.ChoosingOption",
+            "projectName": "Java_6b48553f"
+        },
+        {
+            "type": "java",
+            "name": "FirstDialog",
+            "request": "launch",
+            "mainClass": "OtherProjects.hust.soict.globalict.lab01.FirstDialog",
+            "projectName": "Java_6b48553f"
+        },
+        {
+            "type": "java",
+            "name": "HelloNameDialog",
+            "request": "launch",
+            "mainClass": "OtherProjects.hust.soict.globalict.lab01.HelloNameDialog",
+            "projectName": "Java_6b48553f"
+        },
+        {
+            "type": "java",
+            "name": "HelloWorld",
+            "request": "launch",
+            "mainClass": "OtherProjects.hust.soict.globalict.lab01.HelloWorld",
+            "projectName": "Java_6b48553f"
+        },
+        {
+            "type": "java",
+            "name": "InputFromKeyBoard",
+            "request": "launch",
+            "mainClass": "OtherProjects.hust.soict.globalict.lab01.InputFromKeyBoard",
+            "projectName": "Java_6b48553f"
+        },
+        {
+            "type": "java",
+            "name": "MatrixSum",
+            "request": "launch",
+            "mainClass": "OtherProjects.hust.soict.globalict.lab01.MatrixSum",
+            "projectName": "Java_6b48553f"
+        },
+        {
+            "type": "java",
+            "name": "ShowTwoNumbers",
+            "request": "launch",
+            "mainClass": "OtherProjects.hust.soict.globalict.lab01.ShowTwoNumbers",
+            "projectName": "Java_6b48553f"
+        },
+        {
+            "type": "java",
+            "name": "aTriangle",
+            "request": "launch",
+            "mainClass": "OtherProjects.hust.soict.globalict.lab01.aTriangle",
+            "projectName": "Java_6b48553f"
+        },
+        {
+            "type": "java",
+            "name": "calTwoDoubles",
+            "request": "launch",
+            "mainClass": "OtherProjects.hust.soict.globalict.lab01.calTwoDoubles",
+            "projectName": "Java_6b48553f"
+        },
+        {
+            "type": "java",
+            "name": "daysOfAMonth",
+            "request": "launch",
+            "mainClass": "OtherProjects.hust.soict.globalict.lab01.daysOfAMonth",
+            "projectName": "Java_6b48553f"
+        },
+        {
+            "type": "java",
+            "name": "numericArray",
+            "request": "launch",
+            "mainClass": "OtherProjects.hust.soict.globalict.lab01.numericArray",
+            "projectName": "Java_6b48553f"
+        },
+        {
+            "type": "java",
+            "name": "solveEquation",
+            "request": "launch",
+            "mainClass": "OtherProjects.hust.soict.globalict.lab01.solveEquation",
+            "projectName": "Java_6b48553f"
+        },
+        {
+            "type": "java",
+            "name": "Aims(1)",
+            "request": "launch",
+            "mainClass": "OtherProjects.hust.soict.globalict.lab02.Aimsproject.store.Aims",
+            "projectName": "Java_6b48553f"
+        }
+    ]
+}

@@ -60,19 +60,24 @@ public abstract class Media {
     public boolean isMatch(String title) {
         return (this.getTitle() == title);
     }
-    
+
     public String toString() {
         return getId() + " - " + getTitle() + " - " + getCategory() + ": " + getCost() + "$";
     }
 
     @Override
     public boolean equals(Object obj) {
-        if (obj == this)
-            return true;
-        if (!(obj instanceof Media))
+        try {
+            if (obj == this)
+                return true;
+            if (!(obj instanceof Media))
+                return false;
+            Media media = (Media) obj;
+            return media.getTitle() == this.title;
+        } catch (NullPointerException | ClassCastException e) {
+            System.err.println(e.getMessage());
             return false;
-        Media media = (Media) obj;
-        return media.getTitle() == this.title;
+        }
     }
 
 }
